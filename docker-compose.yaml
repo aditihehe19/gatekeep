@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:17-alpine
+    container_name: gatekeep-db
+    environment:
+      POSTGRES_DB: gatekeep
+      POSTGRES_USER: gatekeep
+      POSTGRES_PASSWORD: gatekeep_local_only
+    ports:
+      - "5433:5432"
+    volumes:
+      - gatekeep_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gatekeep -d gatekeep"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  gatekeep_postgres_data:
