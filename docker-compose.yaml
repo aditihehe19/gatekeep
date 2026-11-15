@@ -5,7 +5,7 @@ services:
     environment:
       POSTGRES_DB: gatekeep
       POSTGRES_USER: gatekeep
-      POSTGRES_PASSWORD: gatekeep_local_only
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5433:5432"
     volumes:
