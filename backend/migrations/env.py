@@ -1,3 +1,5 @@
+from app.modules.audit import models as audit_models
+from app.modules.iam import models as iam_models
 from app.core.config import settings
 from app.core.database import Base
 from app.modules.audit import models as audit_models
